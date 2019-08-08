@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <jmxConfigurator/>
+  <property name="max.retention.days" value="60"/>
+  <springProperty defaultValue="policy-registry" name="APP_NAME"
+    source="spring.application.name"/>
+  <property name="LOG_PATTERN"
+    value="%d{yyyy-MM-dd HH:mm:ss} [${HOSTNAME}] %X{X-B3-TraceId:-} %X{SYSTEM} ${APP_NAME} %X{CONTEXT} %-5level %logger{36} - %msg%n"/>
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>${LOG_PATTERN}</Pattern>
+    </layout>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+  <logger level="ERROR" name="logging.level.org.springframework"/>
+  <logger level="ERROR" name="logging.level.org.apache.http"/>
+  <logger level="DEBUG" name="logging.level.com.equifax.dcat"/>
+
+
+</configuration>
