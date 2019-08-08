@@ -1,6 +1,6 @@
 FROM 172.21.149.244:8181/openjdk:8-jdk
 
-LABEL maintainer = "Equifax Dublin - Data Catalog"
+LABEL maintainer = "Douglas"
 
 VOLUME /config
 WORKDIR /app
